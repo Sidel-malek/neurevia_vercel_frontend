@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
 import {
   Tooltip,
   TooltipContent,
@@ -163,7 +165,16 @@ const topFeatures = useMemo(() => {
       <div className="bg-muted/30 p-4 rounded-md">
         <h4 className="text-sm font-medium mb-3">Biomarker Pattern Visualization</h4>
         <div className="aspect-video bg-muted/50 rounded-md flex items-center justify-center p-4">
-          <img src={shapData.shap_image} alt="SHAP Explanation" className="max-h-full max-w-full rounded-md shadow-md object-contain" />
+
+<Image
+  src={shapData.shap_image}       // base64 ou URL distante
+  alt="SHAP Explanation"
+  width={800}                      // ajuste selon la taille réelle
+  height={600}                     // ajuste selon la taille réelle
+  unoptimized                      // obligatoire si base64 ou domaine non autorisé
+  className="max-h-full max-w-full rounded-md shadow-md object-contain"
+/>
+
         </div>
       </div>
     ) : null;

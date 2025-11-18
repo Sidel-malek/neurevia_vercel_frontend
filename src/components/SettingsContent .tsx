@@ -208,7 +208,7 @@ useEffect(() => {
   if (!authLoading && isAuthenticated) {
     fetchProfile();
   }
-}, [isAuthenticated, authLoading]); // seulement ces deux dépendances
+}, [isAuthenticated, authLoading, apiUrl]); // seulement ces deux dépendances
 
 
   const handleSaveProfile = async () => {

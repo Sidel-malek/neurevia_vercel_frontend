@@ -88,7 +88,7 @@ useEffect(() => {
   };
 
   fetchHistory();
-}, [patientId]);
+}, [patientId, apiUrl]);
 
 
   return (

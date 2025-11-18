@@ -153,7 +153,7 @@ const [shapData, setShapData] = useState({
     if (payload?.biomarkers) {
       fetchShap();
     }
-  }, [payload]);
+  }, [payload,apiUrl]);
 
   const handleNewAnalysis = () => router.push("/diagnosis/parkinson");
 

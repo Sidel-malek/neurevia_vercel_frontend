@@ -5,6 +5,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Info, BarChart2, LineChart, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
 import {
   Tooltip,
   TooltipContent,
@@ -179,11 +181,14 @@ export default function ExplainableAI({
             </div>
           ) : shapData.shap_image ? (
             // SHAP image loaded
-            <img
-              src={shapData.shap_image}
-              alt="SHAP Explanation"
-              className="max-h-full max-w-full rounded-md shadow-md"
-            />
+            <Image
+  src={shapData.shap_image}       // base64 ou URL distante
+  alt="SHAP Explanation"
+  width={800}                      // ajuste selon ton image
+  height={600}                     // ajuste selon ton image
+  unoptimized                      // nécessaire pour base64 ou URLs non optimisées
+  className="max-h-full max-w-full rounded-md shadow-md object-contain"
+/>
 
           
           ) : (
@@ -241,11 +246,14 @@ export default function ExplainableAI({
                       {featureImportanceImage && (
                  <div className="relative group/image">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg opacity-0  transition-opacity duration-300" />
-                  <img
-                    src={featureImportanceImage || "/placeholder.svg"}
-                    alt="Features Importance"
-                    className="w-full h-100 object-cover rounded-sm shadow-sm border border-gray-200 transition-shadow duration-300"
-                  />
+                  <Image
+  src={featureImportanceImage || "/placeholder.svg"} // base64, URL ou local
+  alt="Features Importance"
+  width={800}                    // ajuste selon ton image
+  height={600}                   // ajuste selon ton image
+  unoptimized                    // nécessaire si base64 ou placeholder local
+  className="w-full h-100 object-cover rounded-sm shadow-sm border border-gray-200 transition-shadow duration-300"
+/>
                   <div className="absolute bottom-3 left-3 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium opacity-0  transition-opacity duration-300">
                     Feature Importance Visualization
                   </div>

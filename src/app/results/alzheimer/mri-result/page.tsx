@@ -507,11 +507,13 @@ const currentPrediction = result.result !== undefined
               <div className="bg-muted/30 p-3 rounded-md">
                 <div className="bg-muted/50 rounded-md">
                   {heatmapImg ? (
-                    <img
-                      src={heatmapImg}
-                      alt="Grad-CAM Heatmap Analysis"
-                      className="h-full w-full rounded-md shadow-md"
-                    />
+                    <Image
+  src={heatmapImg}
+  alt="Grad-CAM Heatmap Analysis"
+  width={800}    // Mets une valeur adaptée (obligatoire)
+  height={600}   // Mets une valeur adaptée (obligatoire)
+  className="h-full w-full rounded-md shadow-md object-contain"
+/>
                   ) : (
                     <div className="text-center p-4">
                       <ScanEye className="h-10 w-10 mx-auto text-muted-foreground" />

@@ -45,7 +45,7 @@ const HeaderInside = () => {
     }
 
     fetchDoctorName()
-  }, [])
+  }, [apiUrl])
 
   return (
     <header className="flex items-center justify-between p-4 border-b border-gray-200 bg-white backdrop-blur-sm shadow-sm sticky top-0 z-50">

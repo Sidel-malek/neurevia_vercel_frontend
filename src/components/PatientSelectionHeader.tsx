@@ -102,7 +102,7 @@ export default function PatientSelectionHeader({
   // Fetch patients from API
   useEffect(() => {
     fetchPatients();
-  }, []);
+  }, [fetchPatients]);
 
   // Filter patients based on search query
   const filteredPatients = patients.filter(

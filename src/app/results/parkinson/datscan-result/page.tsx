@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import ProgressCustom from "@/components/progress-custom"
 import { Suspense } from 'react';
 import Loading from "@/components/loading_"
+import Image from "next/image";
 
 import {
   ArrowLeft,
@@ -136,7 +137,7 @@ function DatScanResultContent() {
     if (resultData?.patient_id) {
       fetchAnalysisData();
     }
-  }, [resultData]);
+  }, [resultData, apiUrl]);
 
   const handleNewAnalysis = () => router.push("/diagnosis/parkinson")
 
@@ -408,11 +409,14 @@ function DatScanResultContent() {
               <div className="bg-muted/30 p-3 rounded-md">
                 <div className="bg-muted/50 rounded-md">
                   {resultData.heatmap ? (
-                    <img
-                      src={`data:image/png;base64,${resultData.heatmap}`}
-                      alt="DATscan Heatmap Analysis"
-                      className="h-full w-full rounded-md shadow-md"
-                    />
+                    <Image
+  src={`data:image/png;base64,${resultData.heatmap}`}
+  alt="DATscan Heatmap Analysis"
+  width={800}
+  height={600}
+  unoptimized
+  className="h-full w-full rounded-md shadow-md object-contain"
+/>
                   ) : (
                     <div className="text-center p-4">
                       <ScanEye className="h-10 w-10 mx-auto text-muted-foreground" />
